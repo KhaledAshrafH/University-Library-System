@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script sec="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="Css/all.min.css">
+    <link rel="stylesheet" href="Css/shop.css">
+    <title>shop</title>
+    
+</head>
+<script>
+    $(document).ready(function(){
+        $("myinput").on("keyup", function(){
+            var value = $(this).val().toLowerCase();
+            $("#card div").filter(function(){
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+        });
+    });
+</script>
+<body>
+    <nav class="navBar">
+        <img src="Images/logo.png" alt="">
+        
+        <li><a href="home.html" class="link link-itr item"><i class="fas fa-home" id="home"></i> Home</a></li>
+        <li><a href="#" class="link link-itr item"><i class="fas fa-address-card"></i> About</a></li>
+        <li><a href="contact.html" class="link link-itr item"><i class="fas fa-phone-square-alt"></i> Contact Us</a></li>
+        <li><a href="shop.html" class="space link link-itr item"><i class="fas fa-shopping-cart"></i> Shop</a></li>
+        <li><a href="login.html" class="login item"><i class="fas fa-sign-in-alt"></i> login</a></li>
+        <li><a href="Register.html"><button class="Reg">Register</button></a></li>
+    </nav>
+
+    <div class="text-center paddasection">
+        <div class="section-title title-center">
+            <h1>Gallery search Filter</h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="text" id="myinput" placeholder="search..." class="form-control">
+                    <br><br>
+                    <div class="porfolio-container">
+                        <div class="col-md-4 porfolio-thumbnail">
+                            <div class="card" id="card">
+                                <img src="Images/book1.jpg" style="width: 100%; height: 40vh;">
+                                <h4><b>The Moon</b></h4>
+                                <p>Ahmed</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 porfolio-thumbnail">
+                            <div class="card" id="card">
+                                <img src="Images/book2.jpg" style="width: 100%; height: 40vh;">
+                                <h4><b>The Moon</b></h4>
+                                <p>Ahmed</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 porfolio-thumbnail">
+                            <div class="card" id="card">
+                                <img src="Images/book3.jpg" style="width: 100%; height: 40vh;">
+                                <h4><b>The Moon</b></h4>
+                                <p>Ahmed</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 porfolio-thumbnail">
+                            <div class="card" id="card">
+                                <img src="Images/book4.jpg" style="width: 100%; height: 40vh;">
+                                <h4><b>The Moon</b></h4>
+                                <p>Ahmed</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 porfolio-thumbnail">
+                            <div class="card" id="card">
+                                <img src="Images/book5.jpg" style="width: 100%; height: 40vh;">
+                                <h4><b>The Moon</b></h4>
+                                <p>Ahmed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
