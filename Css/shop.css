@@ -1,0 +1,119 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgb(26, 26, 26);
+}
+.navBar{
+    background-color: rgb(20, 19, 19);
+    width: 100%;
+    height: 75px;
+    margin: auto;
+    display: flex;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+.navBar img{
+    width:80px;
+    height: 80px;
+    margin-top: 6px;
+    margin-left: 6px;
+}
+.navBar li{
+    list-style: none;
+    padding-top: 22px;
+}
+.navBar li .item{
+    text-decoration: none;
+    margin-left: 22px; 
+    padding-bottom: 25px;
+    font-size: 22px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    text-shadow:3px 3px 5px #555;
+    display: inline-block;
+    position: relative;
+    opacity: 0.9;
+}
+.space{
+    margin-right: 560px;
+}
+.login{
+    margin-right: 22px;
+}
+.navBar li a button{
+    background-color: rgb(233, 108, 19);
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    padding:5px 10px;
+    border-radius: 5px;
+    border-style:none ;
+}
+
+.navBar li .item:hover{
+    color:rgb(17,160,216);
+    opacity: 1;
+}
+
+.navBar li .item::before {
+    transition: 300ms;
+    height: 5px;
+    content: "";
+    position: absolute;
+    background-color: rgb(17,160,216);
+}
+  
+.navBar li .item::before {
+    width: 0%;
+    bottom: 10px;
+}
+
+.navBar li a:hover::before {
+    width: 100%;
+}
+
+.navBar li button:hover{
+    background-color: rgb(85, 85, 85);
+    color:rgb(17,160,216);
+    cursor: pointer;
+}
+
+h1{
+    margin-top: 100px;
+    color: white;
+    text-shadow: 2px 1px 3px rgb(10, 84, 114);
+}
+.container{
+    padding: 0px 6px;
+}
+.col-md-12{
+    margin-top: 45px;
+}
+.porfolio-thumbnail{
+    margin-bottom: 45px;
+}
+.card{
+    width: 80%;
+    margin-left: 35px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: 0.4s;
+    border: 1px solid rgb(10, 84, 114);
+    background-color: rgb(14, 30, 39);
+    /*background-color: rgb(17, 18, 27);*/
+}
+.card:hover{
+    transform: scale(1.08);
+    box-shadow: 0 8px 10px rgba(17,160,216, 0.2);
+}
+img{
+    border-radius: 5px 5px 0 0;
+}
+h4 b,p{
+    color: white;
+}
