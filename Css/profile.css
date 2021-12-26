@@ -1,0 +1,178 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+
+    background-color: rgb(26, 26, 26);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.navBar{
+    background-color: rgb(20, 19, 19);
+    width: 100%;
+    height: 75px;
+    margin: auto;
+    display: flex;
+    overflow: hidden;
+
+}
+.navBar img{
+    width:80px;
+    height: 80px;
+    margin-top: 6px;
+    margin-left: 6px;
+}
+.navBar li{
+    list-style: none;
+    padding-top: 22px;
+}
+.navBar li .item{
+    text-decoration: none;
+    margin-left: 22px; 
+    padding-bottom: 25px;
+    font-size: 22px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    text-shadow:3px 3px 5px #555;
+    display: inline-block;
+    position: relative;
+    opacity: 0.9;
+}
+.space{
+    margin-right: 560px;
+}
+.login{
+    margin-right: 22px;
+}
+.navBar li a button{
+    background-color: rgb(233, 108, 19);
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    padding:5px 10px;
+    border-radius: 5px;
+    border-style:none ;
+}
+
+.navBar li .item:hover{
+    color:rgb(17,160,216);
+    opacity: 1;
+}
+
+
+.navBar li .item::before {
+    transition: 300ms;
+    height: 5px;
+    content: "";
+    position: absolute;
+    background-color: rgb(17,160,216);
+}
+  
+.navBar li .item::before {
+    width: 0%;
+    bottom: 10px;
+}
+
+.navBar li a:hover::before {
+    width: 100%;
+}
+
+
+  
+.navBar li button:hover{
+    background-color: rgb(85, 85, 85);
+    color:rgb(17,160,216);
+    cursor: pointer;
+}
+header button:hover{
+    background-color: rgb(85, 85, 85);
+    color: rgb(17,160,216);
+    cursor: pointer;
+}
+button:focus{
+    outline: none;
+}
+
+
+  
+.navBar li button:hover{
+    background-color: rgb(85, 85, 85);
+    color:rgb(17,160,216);
+    cursor: pointer;
+}
+
+.photo{
+    text-align: left;
+    display: inline-block;
+}
+img
+{
+    border-radius:50%;
+    width: 300px;
+    height: 300px;
+    margin-left: 115px;
+    margin-top: 95px;
+}
+h1
+{
+    color: rgb(255, 255, 255);
+    margin-left: 115px;
+    margin-top: 15px;;
+    text-align: center;
+}
+.div
+{
+    margin-left: 40%;
+    margin-top: 10px;
+    padding:25px;
+    width: 600px;
+    opacity: 0.7;
+    border-radius: 4px;
+    margin-top: -400px;
+    outline:none;
+    border:none;
+    box-shadow: -5px 5px 10px rgba(255, 255, 255, 0.2);
+    background-color: rgb(54, 54, 54);
+}
+input:not(input[type=radio]){
+    width: 100%;
+    height: 30px;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    outline:none;
+    border:none;
+    border-radius: 3px;
+}
+
+label{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#email,#age,#Birthday
+{
+    color: white;
+    
+}
+.submit
+{
+    background-color: rgb(17,160,216);
+    color: white;
+    padding: 12px 40px;
+    border-radius: 4px;
+    margin: 5px 5px;
+    margin-top: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+.submit:hover{
+    background-color: rgb(10, 95, 129);
+}
+.gender{
+    margin-bottom: 15px;
+}
