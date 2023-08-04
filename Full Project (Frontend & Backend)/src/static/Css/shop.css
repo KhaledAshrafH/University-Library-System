@@ -1,0 +1,83 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgb(26, 26, 26);
+}
+.navBar{
+    background-color: rgb(20, 19, 19);
+    width: 100%;
+    height: 75px;
+    margin: auto;
+    display: flex;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+.navBar img{
+    width:80px;
+    height: 80px;
+    margin-top: 6px;
+    margin-left: 6px;
+}
+.navBar li{
+    list-style: none;
+    padding-top: 22px;
+}
+.navBar li .item{
+    text-decoration: none;
+    margin-left: 22px; 
+    padding-bottom: 25px;
+    font-size: 22px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    text-shadow:3px 3px 5px #555;
+    display: inline-block;
+    position: relative;
+    opacity: 0.9;
+}
+.space{
+    margin-right: 560px;
+}
+.login{
+    margin-right: 22px;
+}
+.navBar li a button{
+    background-color: rgb(233, 108, 19);
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    padding:5px 10px;
+    border-radius: 5px;
+    border-style:none ;
+}
+
+.navBar li .item:hover{
+    color:rgb(17,160,216);
+    opacity: 1;
+}
+
+.navBar li .item::before {
+    transition: 300ms;
+    height: 5px;
+    content: "";
+    position: absolute;
+    background-color: rgb(17,160,216);
+}
+  
+.navBar li .item::before {
+    width: 0%;
+    bottom: 10px;
+}
+
+.navBar li a:hover::before {
+    width: 100%;
+}
+
+.navBar li button:hover{
+    background-color: rgb(85, 85, 85);
+    color:rgb(17,160,216);
+    cursor: pointer;
+}

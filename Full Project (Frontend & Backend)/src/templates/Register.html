@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{% static 'Css/Register.css' %}">
+        <link rel = "icon" href ="{% static 'Images/logo.png' %}" type = "image/x-icon">
+        <title>Register</title>
+    </head>
+    <body>
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="div1">
+                    <h1>Sign Up</h1>
+                    <input type="text"placeholder="First Name" name="firstName" required >
+                    <input type="text"placeholder="Last Name" name="lastname" required ><br>
+                    <input type="text" placeholder="UserName" name="Username"required >
+                    <input type="email" name="Email" placeholder="E-Mail"required >
+                    <input type="text" placeholder="Gender" name="gender"required >
+                    
+                    <input type="text" name="phone" placeholder="Phone Number"required ><br>
+                    <input type="text" placeholder="city" name="city" required >
+
+                    <input type="password" placeholder="password" name="password" required >
+
+                    <button type="submit">Register</button>
+                    <button type="reset">Reset</button>
+                </div>
+            </form>
+    </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Css/bookUser.css' %}">
+    <link rel="stylesheet" href="{% static 'Css/all.min.css' %}">
+    <link rel = "icon" href ="{% static 'Images/logo.png' %}" type = "image/x-icon">
+    <title>User Book</title>
+    <script>
+        var Myfun=function(txt){
+            var integer = parseInt(txt, 10);
+            return integer
+        }
+
+    </script>
+</head>
+<body>    
+    
+   <nav class="navBar">
+     <img src="{% static 'Images/logo.png' %}" alt="">
+        <li><a href="{% url 'home' %}" class="link link-itr item"><i class="fas fa-home" id="home"></i> Home</a></li>
+        <li><a href="#" class="link link-itr item"><i class="fas fa-address-card"></i> About</a></li>
+        <li><a href="{% url 'contact'%}" class="link link-itr item"><i class="fas fa-phone-square-alt"></i> Contact Us</a></li>
+        <li><a href="{% url 'shop' %}" class="space link link-itr item"><i class="fas fa-shopping-cart"></i> Shop</a></li>
+        {% if request.user.is_authenticated %}
+        <li><a href="{% url 'Logout' %}" class="login item"><i class="fas fa-sign-out-alt"></i> Logout </a></li>
+        {% if request.user.is_superuser %}
+         <li><a href="{% url 'admin_Controller' %}" class="login item"><i class="fas fa-star"></i></a></li>
+        {% else %}
+        <li><a href="{% url 'profile' %}" class="login item"><i class="fas fa-user"></i></a></li>
+        {% endif %}
+        {% else %}
+        <li><a href="{% url 'login' %}" class="login item"><i class="fas fa-sign-in-alt"></i> login</a></li>
+        <li><a href="{% url 'Register' %}"><button class="Reg">Register</button></a></li>
+        {% endif %}
+    </nav>
+    
+
+    <h1 class="title">BOOK DETAILS</h1>
+    <div class="details margin">
+
+        <div class="col-4 book">
+            <div class="book_img"><img src="{{content.Image.url}}"></div>
+        </div>
+
+        <div class="col-8">
+            <div class="allDetails">
+                <div id="name" class="NATP">
+                    <label for="Name">Name</label><br>
+                    <input readonly type="text" name="Name" id="Name" value="{{content.Name}}">
+                </div>
+
+                <div id="author" class="NATP">
+                    <label for="Author">Author</label><br>
+                    <input readonly type="text" name="Author" id="Author" value="{{content.Author}}">
+                </div>
+
+                <div id="time" class="NATP">
+                    <label for="Time">Time</label><br>
+                    <input readonly type="date" name="Time" id="Time" value="{{content.time}}">
+                </div>
+
+                <div id="pages" class="NATP">
+                    <label for="Pages">Pages</label><br>
+                    <input readonly type="number" name="Pages" id="Pages" value="{{content.pages}}">
+                </div>
+                <br>
+                <div class="describtion margin">
+                    <label for="des">Describtion</label><br>
+                    <textarea readonly name="describ" id="des" > {{content.description}}  </textarea>
+                </div>
+
+                <div id="buttons">
+
+                    {% if request.user.is_authenticated %}
+                     {% if not request.user.is_superuser %}
+                        {% if content.active is False %}
+                            {% if content.user == request.user.username %}
+                                <a href="{% url 'Return_Book' content.id %}"> <button class="button">Return Book<i class="fas fa-heart"></i></button> </a>
+                                {% else %}
+
+                            {% endif %}
+
+<!--                     <a href="{% url 'BookBorrow' content.id %}"><button class="button">Borrow<i class="fas fa-credit-card"></i></button></a>-->
+                        {% else %}
+                     <a href="{% url 'BookBorrow' content.id %}"><button class="button">Borrow<i class="fas fa-credit-card"></i></button></a>
+                        {% endif %}
+                    {% else %}
+<!--                     <a href="{% url 'BookBorrow' content.id %}"><button class="button">Borrow<i class="fas fa-credit-card"></i></button></a>-->
+                    {% endif %}
+                    {%endif%}
+
+                    <a href="{% url 'shop' %}">  <button class="button">Back<i class="fas fa-arrow-left"></i></button> </a>
+                </div>
+
+                <div id="price" class="NATP">
+                    <label for="Price">Price</label><br>
+                    <input readonly type="number" name="Price" id="Price" value="{{content.price}}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<style>
+    h2{
+        display: inline-block;
+    }
+</style>
+{% if request.user.is_authenticated %}
+     <h3 class="alert alert-warning">
+     <h2>welcome </h2>{{request.user.username}}
+         create profile here
+     </h3>
+
+    <!--<a href="{'url 'Home'}">Logout</a> -->
+
+{% else %}
+<form method="post">
+    {% csrf_token %}
+    <br>
+    <input type="text" placeholder="UserName" name="Username">
+    <br>
+    <input type="password" placeholder="password" name="password">
+    <br>
+    <input type="submit"value="send">
+</form>
+
+{% endif %}

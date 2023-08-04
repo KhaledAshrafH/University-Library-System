@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    p{
+        background-color: red;
+    }
+    .clear{
+        clear: both;
+    }
+    img{
+        width: 500px;
+        display: inline-block;
+        float: left;
+    }
+    div {
+        background-color: #333;
+        width: 33.333%;
+        overflow: hidden;
+        float: left;
+    }
+</style>
+    <title>Books</title>
+</head>
+<body>
+
+{% for Book in Books %}
+
+{% if Book.active is True %}
+
+<a href="{%url 'Book' Book.pk%}"><h1><img src="{{Book.Image.url}}"></h1></a>
+<div>
+   <h1>{{Book.name_Book}}</h1>
+
+    <h1> {{Book.ISBN}}</h1>
+
+    <h1>{{Book.author}}</h1>
+
+    <h1>{{Book.description}}</h1>
+
+    <h1>{{Book.time}}</h1>
+
+    <h1>{{Book.pages}}</h1>
+    <div class="clear"></div>
+</div>
+
+{% else %}
+  <div class="clear"></div>
+<p> this Book not Active with admin </p>
+
+{% endif %}
+
+{% endfor %}
+
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ahmed</title>
+
+</head>
+<body>
+{% if content.active is True %}
+<h1>{{content.Name}}</h1>
+<h1><img src="{{content.Image.url}}"></h1>
+<h1>{{content.pages}}</h1>
+<h1>{{content.active}}</h1>
+<br>
+<hr>
+{% else%}
+<p>empty</p>
+{% endif%}
+
+</body>
+</html>

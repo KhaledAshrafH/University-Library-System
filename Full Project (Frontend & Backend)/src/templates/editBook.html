@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{% load static %}
+<!--adminnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Css/book.css' %}">
+    <link rel="stylesheet" href="{% static 'Css/all.min.css' %}">
+    <link rel = "icon" href ="{% static 'Images/logo.png' %}" type = "image/x-icon">
+    <title>Book</title>
+
+    <style>
+        .add{
+            position: absolute;
+        }
+        input:focus{
+        border: 2px solid rgb(13, 133, 202);
+        outline: none;
+    }
+    
+        input{
+        display:inline;
+        width: 170px;
+        height: 5vh;
+        color: wheat;
+        background-color: rgb(31, 30, 30);
+        box-shadow: 1px 2px 4px rgb(10, 84, 114);
+    }
+        ::placeholder{
+        color: rgb(165, 164, 164);
+        margin-left: 25px;
+    }
+        label{
+        display: block;
+        font-size: 20px;
+        color: white;
+        text-shadow: 2px 0px 2px rgb(10, 84, 114);
+        }
+      textarea{
+        background-color: rgb(31, 30, 30);
+        margin-top: 6px;
+        border: none;
+        box-shadow: 1px 2px 4px rgb(10, 84, 114);
+        width: 90%;
+        height: 30vh;
+        resize: none;
+        color: rgb(240, 226, 199);
+        font-size: 17px;
+    }
+    </style>
+</head>
+
+<body>
+     
+   <nav class="navBar">
+    <img src="{% static 'Images/logo.png' %}" alt="">
+       <li><a href="{% url 'home' %}" class="link link-itr item"><i class="fas fa-home" id="home"></i> Home</a></li>
+       <li><a href="{% url 'admin_Controller' %}" class="link link-itr item"><i class="fas fa-address-card"></i> About</a></li>
+       <li><a href="{% url 'contact'%}" class="link link-itr item"><i class="fas fa-phone-square-alt"></i> Contact Us</a></li>
+       <li><a href="{% url 'shop' %}" class="space link link-itr item"><i class="fas fa-shopping-cart"></i> Shop</a></li>
+       {% if request.user.is_authenticated %}
+       <li><a href="{% url 'Logout' %}" class="login item"><i class="fas fa-sign-out-alt"></i> Logout </a></li>
+       {% if request.user.is_superuser %}
+       <li><a href="{% url 'admin_Controller' %}" class="login item"><i class="fas fa-star"></i></a></li>
+       {% else %}
+       <li><a href="{% url 'profile' %}" class="login item"><i class="fas fa-user"></i></a></li>
+       {% endif %}
+       {% else %}
+       <li><a href="{% url 'login' %}" class="login item"><i class="fas fa-sign-in-alt"></i> login</a></li>
+       <li><a href="{% url 'Register' %}"><button class="Reg">Register</button></a></li>
+       {% endif %}
+   </nav>
+
+    <h1 class="title">BOOK DETAILS</h1>
+    <div class="details margin">
+        <div class="col-4 book">
+        
+            <div class="book_img"></div>
+        </div>
+        <div class="col-8">
+            <div class="allDetails">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form}}
+                    <input type="submit" value="edit">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOKS Store</title>
+    <link rel="stylesheet" href="{% static 'Css/Login.css' %}">
+    <link rel="stylesheet" href="{% static 'Css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Css/all.min.css' %}">
+    <link rel = "icon" href ="{% static 'Images/logo.png' %}" type = "image/x-icon">
+</head>
+<body>
+          
+    </div>
+    <form method="post">
+        {% csrf_token %}
+
+        <h1>Sign In</h1>
+        <div class="container">
+            
+          <input type="text" placeholder="Email or Username" name="Username" required>
+            
+          <input type="password" placeholder="Password" required name="password">
+              
+          <button type="submit">Login</button>
+
+<!--          <span class="psw"><a href="#">Forgot password?</a></span>-->
+          <hr>
+          </label>
+          <a href="{% url 'home' %}"><button type="button" class="goHome">Go to Home</button> </a>
+          <p class="register">Don't have Account? <a href="{% url 'Register' %}">Sign Up</a></p>
+        </div>
+      
+        
+      </form>
+
+</body>    

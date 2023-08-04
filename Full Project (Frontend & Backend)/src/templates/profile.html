@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{% static 'Css/profile.css' %}">
+        <link rel="stylesheet" href="{% static 'Css/all.min.css' %}">
+        <link rel="stylesheet" href="{% static 'Css/fontawesome.min.css' %}">
+        <link rel = "icon" href ="{% static 'Images/logo.png' %}" type = "image/x-icon">
+        <title>profile</title>
+    </head>
+    <body>
+        {% if request.user.is_authenticated %}
+       <nav class="navBar">
+
+        <img src="{% static 'Images/logo.png' %}" alt="">
+
+        <li><a href="{% url 'home' %}" class="link link-itr item"><i class="fas fa-home" id="home"></i> Home</a></li>
+        <li><a href="#" class="link link-itr item"><i class="fas fa-address-card"></i> About</a></li>
+        <li><a href="{% url 'contact'%}" class="link link-itr item"><i class="fas fa-phone-square-alt"></i> Contact Us</a></li>
+        <li><a href="{% url 'shop' %}" class="space link link-itr item"><i class="fas fa-shopping-cart"></i> Shop</a></li>
+        <li><a href="{% url 'Logout' %}" class="login item"><i class="fas fa-sign-out-alt"></i> Logout </a></li>
+     </nav>
+        <div class="photo">
+            <img src="{{userprofile.url}} ">
+            <h1>{{request.user.first_name }} {{request.user.last_name}} {{userprofile.url}}  </h1>
+        </div>
+
+       <form method="post">
+            {% csrf_token %}
+
+            <div class="div">
+                <div>
+                    <label>UserName</label>
+                    <input type="text" placeholder="UserName" name="Username" value="{{user}}" readonly >
+                    <label>firstName</label>
+                     <input type="text" placeholder="firstName" name="firstName" value="{{firstName}}">
+
+                    <label>lastname</label>
+                     <input type="text" placeholder="lastname" name="lastname" value="{{lastname}}">
+
+                  
+                     <label>phone</label>
+                    <input type="text" placeholder="phone" name="phone"  value="{{phone}}">
+
+                </div>
+                
+
+                <div>
+                    <label>Password</label><br>
+                    <input type="password" placeholder="password" name="password" value="{{password}} " id="password">
+                </div>
+
+                <label>City</label>
+                <input type="text" placeholder="city" name="city"  value="{{city}}">
+
+                 <input type="submit"value="Save" name="btn" class="submit">
+            </div>
+    </form>
+    {% else %}
+        <a href="{% url 'login' %}">please log in first</a>
+    {% endif %}
+    </body>
+</html>

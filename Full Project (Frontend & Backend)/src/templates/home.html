@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOKS Store</title>
+    <link rel="stylesheet" href="{% static 'Css/HomeStyle.css' %}">
+    <link rel="stylesheet" href="{% static 'Css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Css/all.min.css' %}">
+    <link rel="icon" href="{% static 'Images/logo.png' %}" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="navBar">
+        <img src="{% static 'Images/logo.png' %}" alt="">
+        <li><a href="{% url 'home' %}" class="link link-itr item"><i class="fas fa-home" id="home"></i> Home</a></li>
+        <li><a href="#about" class="link link-itr item"><i class="fas fa-address-card"></i> About</a></li>
+        <li><a href="{% url 'contact'%}" class="link link-itr item"><i class="fas fa-phone-square-alt"></i> Contact
+                Us</a></li>
+        <li><a href="{% url 'shop' %}" class="space link link-itr item"><i class="fas fa-shopping-cart"></i> Shop</a>
+        </li>
+        {% if request.user.is_authenticated %}
+        <li><a href="{% url 'Logout' %}" class="login item"><i class="fas fa-sign-out-alt"></i> Logout </a></li>
+        {% if request.user.is_superuser %}
+
+        <li><a href="{% url 'admin_Controller' %}" class="login item"><i class="fas fa-star"></i></a></li>
+
+        <!---->
+        {% else %}
+        <li><a href="{% url 'profile' %}" class="login item"><i class="fas fa-user"></i></a></li>
+        {% endif %}
+        {% else %}
+        <li><a href="{% url 'login' %}" class="login item"><i class="fas fa-sign-in-alt"></i> login</a></li>
+        <li><a href="{% url 'Register' %}"><button class="Reg">Register</button></a></li>
+        {% endif %}
+    </nav>
+
+    <header>
+        <h1>Welcome to our BOOKS Store.</h1>
+        <a href="{% url 'shop' %}"><button class="b">Shop Now</button></a>
+    </header>
+
+    <hr>
+    <h1 class="Latest">The latest books in our website</h1>
+
+    <section>
+    {% for Book in Books|slice:'0:4' %}
+
+        <div class="pro">
+            <img src="{{Book.Image.url}}" alt="" class="img1">
+
+            <p>{{Book.price}}$</p>
+
+            {% if Book.active is False %}
+             <a href="{%url 'Book' Book.pk%}"> <button>Borrowed</button> </a>
+            {% else %}
+
+            <a href="{%url 'Book' Book.pk%}"> <button>Buy Now</button> </a>
+            {% endif %}
+
+            {% if request.user.is_superuser %}
+            <a href="{% url 'edit' Book.id %}" class="login item"><i class="fas fa-edit" style="color:rgb(17,160,216)"></i></a>
+            {% endif %}
+
+        </div>
+
+    {% endfor %}
+
+    </section>
+    <section>
+
+            {% for Book in Books|slice:'4:8' %}
+
+        <div class="pro">
+            <img src="{{Book.Image.url}}" alt="" class="img1">
+
+            <p>{{Book.price}}$</p>
+
+            {% if Book.active is False %}
+             <a href="{%url 'Book' Book.pk%}"> <button id="about">Borrowed</button> </a>
+            {% else %}
+
+            <a href="{%url 'Book' Book.pk%}"> <button>Buy Now</button> </a>
+            {% endif %}
+
+            {% if request.user.is_superuser %}
+            <a href="{% url 'edit' Book.id %}" class="login item"><i class="fas fa-edit" style="color:rgb(17,160,216)"></i></a>
+            {% endif %}
+
+        </div >
+
+    {% endfor %}
+
+    </section>
+
+    <hr>
+    <h1 class="Latest" >About Us</h1>
+    <div>
+        <p class="Pabout"><span>BOOKS Store</span> is an electronic library that allows you to buy books and borrow
+            them,
+            enables you to buy them easily, we have a large number of books for the most famous authors,
+            you can see them very easily. This library was created in 2021 through the 6 of students who love and read
+            books,
+            and they were getting books very hard, so they created this electronic library
+            to make it easier for the rest of the people to buy.</p>
+
+    </div>
+    <hr>
+    <h1 class="Latest">Authors</h1>
+    <section>
+
+        <div class="photo">
+            <img src="{% static 'Images/khaled.jpg' %}" alt="" class="person">
+            <p>Khaled Ashraf</p>
+        </div>
+
+        <div class="photo">
+            <img src="{% static 'Images/ahmed.jpg' %}" alt="" class="person">
+            <p>Ahmed Sayed</p>
+        </div>
+
+        <div class="photo">
+            <img src="{% static 'Images/Shmiaa.jpeg' %}" alt="" class="person">
+            <p>Shimaa Reda</p>
+        </div>
+
+    </section>
+    <section>
+        <div class="photo">
+            <img src="{% static 'Images/Asmaa2.jpeg' %}" alt="" class="person">
+            <p>Asmaa Ahmed</p>
+        </div>
+
+        <div class="photo">
+            <img src="{% static 'Images/Mahmoud.jpeg' %}" alt="" class="person">
+            <p>Mahmoud Farid</p>
+        </div>
+
+        <div class="photo">
+            <img src="{% static 'Images/face.jpg' %}" alt="" class="person">
+            <p>Tony</p>
+        </div>
+
+    </section>
+
+
+    <footer>
+        <i class="fab fa-facebook" id="face"></i>
+        <i class="fab fa-instagram" id="insta"></i>
+        <i class="fab fa-twitter" id="twitter"></i>
+        <i class="fab fa-youtube" id="yout"></i>
+        <h3>&copy;Copyright 2021 BOOKS Store</h3>
+    </footer>
+
+</body>
+
+</html>
